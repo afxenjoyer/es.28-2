@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="es._28_2.Banca">
+    <Position X="1.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAACIAAgAAAAgAAEAAQAAAAEgAAA=</HashCode>
+      <FileName>Banca.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="es._28_2.Cliente">
+    <Position X="3" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAEAAEAAAABAAAAAAAABAAAAAAAAEAAAA=</HashCode>
+      <FileName>Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="es._28_2.Prestito">
+    <Position X="5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAEAAACAAAAAAAAAAAAAAAAAIBACAA=</HashCode>
+      <FileName>Prestito.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
