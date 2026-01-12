@@ -23,6 +23,8 @@ namespace es._28_2
             this.Stipendio = stipendio;
         }
 
+        public Cliente() {}
+
         public override string ToString()
         {
             return $"{Nome} {Cognome} {CodiceFiscale}:{Stipendio:0.00}";

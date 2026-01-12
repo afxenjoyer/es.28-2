@@ -26,6 +26,8 @@ namespace es._28_2
             this.DataFine = dataFine;
         }
 
+        public Prestito() {}
+
         public override string ToString()
         {
             return $"{Intestatario}:\n {Ammontare:0.00} {Rata:0.00}% {DataInizio:d} - {DataFine:d}";

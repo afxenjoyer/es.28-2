@@ -2,20 +2,68 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace es._28_2
 {
     public class Banca
     {
         public string Nome { get; set; }
-        
+
         public System.Collections.Generic.List<es._28_2.Cliente> Clienti { get; set; }
-        
+
         public System.Collections.Generic.List<Prestito> Prestiti { get; set; }
 
+        public Banca() {}
         public Banca(string nome)
         {
             this.Nome = nome;
+        }
+
+        public void SerializzaXml(string pathFile)
+        {
+            var serializer = new XmlSerializer(typeof(Banca));
+            var writer = new StreamWriter(pathFile);
+
+            serializer.Serialize(writer, this);
+            writer.Close();
+        }
+
+        public static Banca DeserializzaXml(string pathFile)
+        {
+            if (!File.Exists(pathFile))
+            {
+                throw new FileNotFoundException("Il file da deserializzare non è stato trovato");
+            }
+
+            var serializer = new XmlSerializer(typeof(Banca));
+            var reader = new StreamReader(pathFile);
+
+            var banca = (Banca)serializer.Deserialize(reader);
+            reader.Close();
+            return banca;
+        }
+
+        public void SerializzaJson(string pathFile)
+        {
+            var options = new JsonSerializerOptions() { WriteIndented = true };
+
+            string outputJson = JsonSerializer.Serialize(this, options);
+            File.WriteAllText(pathFile, outputJson);
+        }
+
+        public static Banca DeserializzaJson(string pathFile)
+        {
+            if (!File.Exists(pathFile))
+            {
+                throw new FileNotFoundException("Il file da deserializzare non è stato trovato");
+            }
+
+            string fileJson = File.ReadAllText(pathFile);
+            var banca = (Banca)JsonSerializer.Deserialize(fileJson, typeof(Banca));
+            return banca;
         }
 
         public void AggiungiCliente(Cliente clienteDaAggiungere)
